@@ -158,7 +158,7 @@ class _PinjamanGridWidgetState extends State<PinjamanGridWidget> {
             print('fais $inidatas');
           });
         } else {
-          print('fais ERROR');
+          print('fais ERROR data kosong');
         }
       } else {
         print(' fais Error: ${response.statusCode}');

@@ -113,6 +113,7 @@ class _PengajuanScreenState extends State<PengajuanEdtScreen> {
             },
             child: Icon(CupertinoIcons.back, color: Colors.white),
           ),
+          centerTitle: true,
           title: Text(
             'Lihat Pengajuan Pinjaman',
             style: TextConstant.regular.copyWith(

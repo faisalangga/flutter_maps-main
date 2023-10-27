@@ -248,7 +248,6 @@ class _TartunScreenState extends State<TarikTunaiInsScreen> {
                               SizedBox(height: 5),
                               Text(
                                 'Rp. ${saldosimpString != null && double.tryParse(saldosimpString!) != null ? duet(saldosimpString!) : '0'}',
-
                                 // 'Rp. ${saldosimpString != null && double.tryParse(saldosimpString!) != 0 ? duet(saldosimpString!) : '0'}',
                                 style: TextConstant.medium.copyWith(
                                   color: Colors.black87,
@@ -575,8 +574,8 @@ class _TartunScreenState extends State<TarikTunaiInsScreen> {
                               ),
                               actions: <Widget>[
                                 BasicDialogAction(
-                                  title: Text('Oke',
-                                      textAlign: TextAlign.right),
+                                  title:
+                                      Text('Oke', textAlign: TextAlign.right),
                                   onPressed: () async {
                                     Navigator.pop(context);
                                     Map<String, dynamic> data = {
@@ -610,13 +609,11 @@ class _TartunScreenState extends State<TarikTunaiInsScreen> {
                                   },
                                 ),
                                 BasicDialogAction(
-                                  title: Text(
-                                    "Batal",
-                                    textAlign: TextAlign.left,
-                                    style : TextStyle(
-                                      color: Colors.red,
-                                    )
-                                  ),
+                                  title: Text("Batal",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                      )),
                                   onPressed: () {
                                     Navigator.pop(context);
                                     print('Batal');

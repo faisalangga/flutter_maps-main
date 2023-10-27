@@ -139,6 +139,7 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
             },
             child: Icon(CupertinoIcons.back, color: Colors.white),
           ),
+          centerTitle: true,
           title: Text(
             'Pengajuan Pinjaman',
             style: TextConstant.regular.copyWith(
