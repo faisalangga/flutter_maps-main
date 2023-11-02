@@ -125,6 +125,7 @@ class AjuSimpController extends GetxController {
     post['cinput'] = preferences.getString("username");
     post['keperluan'] = edtnote.text;
     post['jaminan'] = data['jaminan'];
+    post['duedate'] = data['duedate'];
     print('fais $post');
 
     API.basePostGolang(ConstUrl.insertPinjaman, post, header, true,

@@ -49,7 +49,7 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
   String? _inibiayadm;
   Jaminan? _jaminan;
   String? _jaminanValueCompSelected;
-  // String? _jasajaminan;
+  String? _duedate;
   String selectedDuration = '3 Bulan';
   String selectednilai = '0.00';
   int? pinjamanValue = 0;
@@ -59,7 +59,6 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
   int? jumtot = 0;
 
   int id = 1;
-
   // bool _switchValue = true;
   // bool _obscureText = true;
 
@@ -114,6 +113,19 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
       return total;
     }
     return 0;
+  }
+
+  String? duedate([int? tenorBulan]) {
+    DateTime hariini = DateTime.now();
+    DateTime dueDate = hariini.add(Duration(days: tenorBulan! * 30));
+    return "${dueDate.year}-${dueDate.month.toString().padLeft(2, '0')}-${dueDate.day.toString().padLeft(2, '0')}";
+  }
+
+  void main() {
+    print(tenor());
+    int tenorBulan = (int.tryParse(tenor()!) ?? 0) - 1;
+    String? jatuhTempo = duedate(tenorBulan);
+    print("fais Tanggal jatuh tempo: $jatuhTempo");
   }
 
   String formatCurrency(int value) {
@@ -273,8 +285,14 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
                           _valueCompSelected = data.bulan.toString();
                           _jasa = data.nbiayajasa!.toString();
                           _inibiayadm = data.mbiayaadmin!.toString();
-                          print('faisxxxx + $_jasa $_inibiayadm');
-                          print(tenor());
+                          // print('faisxxxx + $_jasa $_inibiayadm');
+                          DateTime hariini = DateTime.now();
+                          // print ('fais' + tenor()! ??"0");
+                          DateTime dueDate = hariini.add(Duration(days: ((int.tryParse(tenor()!) ?? 0) - 1) * 30));
+                          _duedate = dueDate.toString();
+                          // print('faisaasssss');
+                          // print('faisaaa + $_duedate');
+                           // print(tenor());
                           // print('fais $_valueCompSelected');
                         });
                       },
@@ -636,6 +654,7 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
                                           'jaminan':
                                               '$_jaminanValueCompSelected',
                                           'tenor': tenor(),
+                                          'duedate' : '$_duedate'
                                         };
                                         // print('fais' +
                                         //     ajusimpcontroller.edtjaminan.text);
