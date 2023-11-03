@@ -24,6 +24,7 @@ import '../../../constant/image_constant.dart';
 import '../../../controller/pengajuan_simp_controller.dart';
 import '../../../model/model_jaminan.dart';
 import '../../../model/model_tenor.dart';
+import '../../../utils/Utils.dart';
 import '../../../utils/utils_formatnumber.dart';
 import 'package:http/http.dart' as http;
 
@@ -115,18 +116,18 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
     return 0;
   }
 
-  String? duedate([int? tenorBulan]) {
-    DateTime hariini = DateTime.now();
-    DateTime dueDate = hariini.add(Duration(days: tenorBulan! * 30));
-    return "${dueDate.year}-${dueDate.month.toString().padLeft(2, '0')}-${dueDate.day.toString().padLeft(2, '0')}";
-  }
-
-  void main() {
-    print(tenor());
-    int tenorBulan = (int.tryParse(tenor()!) ?? 0) - 1;
-    String? jatuhTempo = duedate(tenorBulan);
-    print("fais Tanggal jatuh tempo: $jatuhTempo");
-  }
+  // String? duedate([int? tenorBulan]) {
+  //   DateTime hariini = DateTime.now();
+  //   DateTime dueDate = hariini.add(Duration(days: tenorBulan! * 30));
+  //   return "${dueDate.year}-${dueDate.month.toString().padLeft(2, '0')}-${dueDate.day.toString().padLeft(2, '0')}";
+  // }
+  //
+  // void main() {
+  //   print(tenor());
+  //   int tenorBulan = (int.tryParse(tenor()!) ?? 0) - 1;
+  //   String? jatuhTempo = duedate(tenorBulan);
+  //   print("fais Tanggal jatuh tempo: $jatuhTempo");
+  // }
 
   String formatCurrency(int value) {
     final formatter =
@@ -288,11 +289,12 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
                           // print('faisxxxx + $_jasa $_inibiayadm');
                           DateTime hariini = DateTime.now();
                           // print ('fais' + tenor()! ??"0");
-                          DateTime dueDate = hariini.add(Duration(days: ((int.tryParse(tenor()!) ?? 0) - 1) * 30));
+                          DateTime dueDate = addMonths(hariini, int.tryParse(tenor()!)??0);
+                          // DateTime dueDate = hariini.add(Duration(days: ((int.tryParse(tenor()!) ?? 0) - 1) * 30));
                           _duedate = dueDate.toString();
                           // print('faisaasssss');
-                          // print('faisaaa + $_duedate');
-                           // print(tenor());
+                          print('faisaaa + $_duedate');
+                           print(tenor());
                           // print('fais $_valueCompSelected');
                         });
                       },
@@ -462,9 +464,7 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
                     ),
                   ],
                 )),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(

@@ -9,4 +9,12 @@ String getLogoBank(String bank) {
   }
 }
 
+DateTime addMonths(DateTime dateTime, int monthsToAdd) {
+  final newYear = dateTime.year + (dateTime.month + monthsToAdd) ~/ 12;
+  final newMonth = (dateTime.month + monthsToAdd) % 12;
+  final newDay = dateTime.day;
+  final newDate = DateTime(newYear, newMonth-1, newDay);
+  return newDate;
+}
+
 
