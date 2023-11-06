@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:koperasimobile/constant/const_url.dart';
-import 'package:koperasimobile/constant/dialog_constant.dart';
+// import 'package:koperasimobile/constant/dialog_constant.dart';
 import 'package:koperasimobile/constant/utils_rp.dart';
 import 'package:koperasimobile/model/model_search_pinjaman.dart';
 import 'package:koperasimobile/screen/auth/pengajuan_simp/pengajuan_simp_edit_screen.dart';
