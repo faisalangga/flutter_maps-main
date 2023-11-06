@@ -293,7 +293,7 @@ class _AjuSimpScreenState extends State<AjuSimpInsScreen> {
                           // DateTime dueDate = hariini.add(Duration(days: ((int.tryParse(tenor()!) ?? 0) - 1) * 30));
                           _duedate = dueDate.toString();
                           // print('faisaasssss');
-                          print('faisaaa + $_duedate');
+                          // print('faisaaa + $_duedate');
                            print(tenor());
                           // print('fais $_valueCompSelected');
                         });

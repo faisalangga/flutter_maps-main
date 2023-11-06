@@ -341,7 +341,7 @@ class _PinjamanGridWidgetState extends State<PinjamanGridWidget> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent.shade100,
+                      color: Colors.lightBlue.shade100,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Padding(
@@ -358,10 +358,24 @@ class _PinjamanGridWidgetState extends State<PinjamanGridWidget> {
                   ),
                   pinjaman.cStatus == '0'
                       ? IconButton(
-                          icon: Icon(
-                            Icons.delete_forever_sharp,
-                            color: Colors.red,
-                            size: 30.0,
+                          icon: Stack(
+                            children: <Widget>[
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.lightBlue.shade100,
+                                ),
+                              ),
+                              Center(
+                                child: Icon(
+                                  Icons.delete_forever_sharp,
+                                  color: Colors.redAccent.shade400,
+                                  size: 30.0,
+                                ),
+                              ),
+                            ],
                           ),
                           onPressed: () {
                             // Logika penghapusan di sini

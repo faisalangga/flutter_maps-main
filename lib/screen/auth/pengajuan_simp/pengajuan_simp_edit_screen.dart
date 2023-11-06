@@ -339,7 +339,7 @@ class _PengajuanScreenState extends State<PengajuanEdtScreen> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Jasa Pinjaman 1.5 %',
+                                'Jasa 1.5 % (Per Bulan)',
                                 style: TextConstant.regular.copyWith(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black87,
