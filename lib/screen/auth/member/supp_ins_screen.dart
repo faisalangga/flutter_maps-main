@@ -254,6 +254,7 @@ class _SuppScreenState extends State<SuppInsScreen> {
   Kota2? _kota2;
   Kecamatan2? _kecamatan2;
   Desa2? _desa2;
+
   // Kodepos2? _kdpos2;
   String? provinsiSelected;
   String? provinsiSelected2;

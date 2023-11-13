@@ -276,14 +276,36 @@ class _PinjamanGridWidgetState extends State<PinjamanGridWidget> {
             ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AjuSimpInsScreen(
-                tipeCheck: 'ini create',
+          bool isPendingApproval = !inidatas.any((pinjaman) => pinjaman.cStatus == '3');
+          print('faisinidata + $isPendingApproval');
+          if (isPendingApproval) {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Peringatan'),
+                  content: Text('Tidak dapat membuat pinjaman baru, Ada pinjaman belum Approve Final.'),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text('Tutup'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AjuSimpInsScreen(
+                  tipeCheck: 'ini create',
+                ),
               ),
-            ),
-          );
+            );
+          }
         },
         icon: Icon(Icons.add_circle),
         label: Text('Add'),
@@ -327,11 +349,11 @@ class _PinjamanGridWidgetState extends State<PinjamanGridWidget> {
             child: ListTile(
               leading: CircleAvatar(
                 backgroundImage: AssetImage(
-                  pinjaman.cStatus != '0'
+                  pinjaman.cStatus != '3'
                       ? "assets/images/checklist.png"
                       : "assets/images/rejected.png",
                 ),
-                backgroundColor: pinjaman.cStatus != '0'
+                backgroundColor: pinjaman.cStatus != '3'
                     ? Colors.green.shade200
                     : Colors.lightBlue.shade100,
                 radius: 20,
